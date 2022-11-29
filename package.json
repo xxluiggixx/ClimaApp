@@ -1,0 +1,25 @@
+{
+  "name": "climaapp",
+  "version": "1.0.0",
+  "description": "Getter wheater from different location",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xxluiggixx/ClimaApp.git"
+  },
+  "author": "Luis García",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xxluiggixx/ClimaApp/issues"
+  },
+  "homepage": "https://github.com/xxluiggixx/ClimaApp#readme",
+  "dependencies": {
+    "axios": "^1.2.0",
+    "colors": "^1.4.0",
+    "inquirer": "^8.2.5"
+  }
+}
