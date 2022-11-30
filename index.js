@@ -19,6 +19,7 @@ const main  = async () =>{
                 //Buscar los lugares
                 const selectionCitys = await searchs.city(place);
                 //Seleccionar el lugar
+                console.log(selectionCitys);
 
                 //Datos clima
 

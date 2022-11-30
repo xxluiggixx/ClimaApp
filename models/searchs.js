@@ -11,7 +11,8 @@ class Searchs{
         return {
             'access_token': process.env.MAPBOX_KEY,
             'limit': 5,
-            'language': 'es'
+            'language': 'es',
+            'trophies': true
         }
     }
 
@@ -21,17 +22,21 @@ class Searchs{
             //console.log('APY_KEY', process.env.MAPBOX_KEY);
             const instance = axios.create({
                 baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${ place }.json`,
-                params: this.paramMapBox
+                params: this.paramMapBox,
+                headers: {
+                        Accept: 'application/json', 
+                        'Accept-Encoding': 'identity'
+                    }
               });
 
             const resp = await instance.get();
-            const data = JSON.parse(resp);
-            console.log(data);
-            console.log('StatusCode', resp.status);
-            /* const resp = await axios.get('https://reqres.in/api/users?page=2');
-            //console.log('Axios',resp.data);
-            console.log(API_KEY); */
-            return[]; //returno place equal    
+
+            return resp.data.features.map( place =>({
+                id: place.id,
+                name: place.place_name,
+                lng: place.center[0],
+                lat: place.center[1]
+            }))
         } catch (error) {
             console.log('No se encontro nada: ', error);
             return [];
